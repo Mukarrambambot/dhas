@@ -1,0 +1,245 @@
+/* Importing Poppins font from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* Resetting default styles for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Defining color variables using :root */
+:root {
+  --clr-white: #f3f3f3;
+  --clr-lightBlue: #add8e6; /* Light Blue color */
+  --clr-darkBlue: #4b3869;
+  --clr-darkBlue-aplha: rgba(27, 27, 50, 0.8);
+  --clr-green: #37af65;
+  --clr-primary: #3498db; /* Update with a new primary color */
+  --clr-accent: #e74c3c; /* Update with a new accent color */
+  --clr-background: #ecf0f1; /* Update with a new background color */
+  --clr-text: #2c3e50; /* Update with a new text color */
+  --clr-button: #27ae60; /* Update with a new button color */
+}
+
+/* Global styles for the body */
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px; /* Adjust the base font size */
+  line-height: 1.6; /* Adjust the line height for better readability */
+  text-align: center;
+  color: #000; /* Change to black text color */
+  margin: 0;
+}
+
+/* Styling the background of the body */
+body:before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  /* Gradient background with an overlay image */
+  background-image: linear-gradient(
+    115deg,
+    rgba(58, 58, 158, 0.8),
+    rgba(136, 136, 206, 0.7)
+  ),
+  url("/static/bg.jpg"); /* Fix path to the background image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Styling for headings and paragraphs */
+h1 {
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+p {
+  font-size: 1.125rem;
+}
+
+h1,
+p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* Styling for labels */
+label {
+  display: flex;
+  align-items: center;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Styling for the header */
+header {
+  padding: 0 0.625rem;
+  margin-bottom: 1.875rem;
+  background-color: var(--clr-primary);
+  color: var(--clr-white);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 2.5rem; /* Adjust the font size for the heading */
+  letter-spacing: 1px;
+}
+
+/* Styling for the description */
+.description {
+  font-style: italic;
+  font-weight: 200;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+/* Centering text */
+.text_center {
+  text-align: center;
+}
+
+/* Additional styling for clues */
+.clue {
+  margin-left: 0.25rem;
+  font-size: 0.9rem;
+  color: #e4e4e4;
+}
+
+/* Styling for the main container */
+.container {
+  width: 100%;
+  margin: 3.125rem auto 0 auto;
+}
+
+/* Media queries for responsiveness */
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+/* Styling for the main form */
+form {
+  background-color: rgba(173, 216, 230, 0.5); /* Adjust alpha value for transparency */
+  padding: 2.5rem 0.625rem;
+  border-radius: 1rem;
+}
+
+@media (min-width: 480px) {
+  form {
+    padding: 2.5rem;
+  }
+}
+
+/* Styling for form groups */
+.form_group {
+  margin: 0 auto 1.25 auto;
+  padding: 0.25rem;
+  margin-bottom: 2rem;
+}
+
+/* Styling for form controls within the form group */
+.form_control {
+  display: block;
+  width: 100%;
+  height: 2.375rem;
+  color: #000; /* Black text color */
+  padding: 0.375rem 0.75rem;
+  background-color: #d6e9f5; /* Slightly darker background color */
+  border: 1px solid #ced4da;
+  background-clip: padding-box;
+  border-radius: 0.5rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Styling for focused form controls */
+.form_control:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 225, 0.25);
+}
+
+/* Styling for radio buttons and checkboxes */
+.input_radio,
+.input_checkbox {
+  display: inline-block;
+  margin-right: 0.625rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+}
+
+/* Styling for text areas */
+.input_textarea {
+  min-height: 120px;
+  width: 100%;
+  padding: 0.625rem;
+  resize: vertical;
+  border-radius: 0.5rem;
+}
+
+/* Styling for the submit button */
+.submit_btn {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  cursor: pointer;
+  background-color: #6fa2d6; /* A slightly darker blue color */
+  outline: none;
+  color: var(--clr-white); /* White text color */
+  border: none;
+  border-radius: 0.5rem;
+  transition: transform 0.3s linear;
+  font-size: 0.967rem;
+  font-weight: bold; /* Make the text bold */
+  text-transform: uppercase; /* Convert the text to uppercase */
+}
+
+/* Hover effect for the submit button */
+.submit_btn:hover {
+  transform: scale(1.05);
+}
+
+/* Apply animation to the form */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+form {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Additional styling for the submit button on smaller screens */
+@media (max-width: 768px) {
+  .submit_btn {
+    font-size: 0.9rem; /* Adjust font size for smaller screens */
+  }
+}
+
+/* Add this style for better visual grouping */
+.textarea-group {
+  display: flex;
+  gap: 10px; /* Adjust the gap as needed */
+}
+
+/* Style for the submit button inside the textarea group */
+.input_textarea,
+.submit_btn {
+  padding: 10px;
+} 

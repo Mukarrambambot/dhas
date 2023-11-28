@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <!-- Add your stylesheets and other dependencies here -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Mukarrambambot/dhas@801c86db81f377006e32a15eba2c9aee0c60c853/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Add a CSS rule for the fade-out animation */
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // You can include any additional scripts if needed
+        });
+
+        function hideSubmitButton() {
+            var submitButtonContainer = document.getElementById("submitButtonContainer");
+            
+            // Add the fade-out animation class
+            submitButtonContainer.classList.add("fadeOutAnimation");
+
+            // Set a timeout to hide the button after the animation is complete
+            setTimeout(function() {
+                submitButtonContainer.style.display = "none";
+            }, 500); // Adjust the duration of the animation (in milliseconds)
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 id="title" class="text_center">
+                Diabetes Health Survey
+            </h1>
+            <p id="description" class="description text_center">
+                Your feedback is valuable to us. We appreciate your time and input.
+            </p>
+        </header>
+
+        <!-- Content similar to index.html -->
+        <div class="content">
+            <p>Thank you for completing the Diabetes Health Survey! Your responses have been recorded, and your feedback is crucial for us to understand your health condition.</p>
+            <p>If you have any further questions or concerns, please don't hesitate to contact us. We appreciate your contribution to improving health awareness.</p>
+
+            <!-- Additional Comments Section -->
+            <div class="additional-comments">
+                <label for="additionalComments">Additional Comments or Concerns:</label>
+                <div class="textarea-group" id="submitButtonContainer">
+                    <textarea
+                        name="additionalComments"
+                        id="additionalComments"
+                        class="input_textarea"
+                        placeholder="Feel free to share any additional comments or concerns..."
+                    ></textarea>
+                    <button type="submit" class="submit_btn" onclick="hideSubmitButton()">Submit</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright notice in the footer -->
+        <footer class="copyright">
+            <p>&copy; 2023 DHAS.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

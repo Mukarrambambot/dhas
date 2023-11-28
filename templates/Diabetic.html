@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Health Survey - Page 2</title>
+
+    <!-- Add your stylesheets and other dependencies here -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+
+    <!-- Your custom stylesheet -->
+    <link rel="stylesheet" href="http://127.0.0.1:5000/static/style.css">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 id="title" class="text_center">
+                Diabetes Health Survey - Page 2
+            </h1>
+            <p id="description" class="description text_center">
+                Your health information is valuable. Let's gather more details.
+            </p>
+        </header>
+
+        <!-- Survey Form - Page 2 -->
+        <form id="survey_form" onsubmit="submitForm(event)" autocomplete="on">
+            <p>If diabetic, please answer the following:</p>
+            <!-- Health Metrics -->
+            <div class="form_group">
+                <label for="sugarLevel">Level of Sugar:</label>
+                <input
+                    type="text"
+                    name="sugarLevel"
+                    id="sugarLevel"
+                    class="form_control"
+                    placeholder="Enter sugar level"
+                />
+            </div>
+            <div class="form_group">
+                <label for="hibic">HIBIC:</label>
+                <input
+                    type="text"
+                    name="hibic"
+                    id="hibic"
+                    class="form_control"
+                    placeholder="Enter HIBIC"
+                />
+            </div>
+            <div class="form_group">
+                <label for="chronicDisease">Chronic Disease:</label>
+                <input
+                    type="text"
+                    name="chronicDisease"
+                    id="chronicDisease"
+                    class="form_control"
+                    placeholder="Enter chronic disease"
+                />
+            </div>
+
+            <!-- Diabetic-specific Questions -->
+            <div id="survey_form" onsubmit="submitForm(event)" autocomplete="on">
+                
+                <div class="form_group">
+                    <label for="blood-sugar-level" id="blood-sugar-label">Blood Sugar Level:</label>
+                    <input
+                        type="text"
+                        name="bloodSugarLevel"
+                        id="blood-sugar-level"
+                        class="form_control"
+                        placeholder="Enter your blood sugar level"
+                        required
+                        pattern="\d+(\.\d+)?"
+                        title="Please enter a valid number"
+                    />
+                </div>
+
+                <div class="form_group">
+                    <label for="insulin-level" id="insulin-level-label">Insulin Level:</label>
+                    <input
+                        type="text"
+                        name="insulinLevel"
+                        id="insulin-level"
+                        class="form_control"
+                        placeholder="Enter your insulin level"
+                        required
+                        pattern="\d+"
+                        title="Please enter a valid number"
+                    />
+                </div>
+            </div>
+
+            <!-- Sleep Habits -->
+            <div class="form_group">
+                <p>Do you experience difficulties falling asleep or staying asleep?</p>
+                <label>
+                    <input
+                        type="radio"
+                        name="sleepDifficulties"
+                        value="yes"
+                        class="input_radio"
+                    />
+                    Yes
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        name="sleepDifficulties"
+                        value="no"
+                        class="input_radio"
+                    />
+                    No
+                </label>
+            </div>
+            <div class="form_group">
+                <label for="sleepHours" id="sleepHours_label">
+                    <i class="fas fa-bed"></i> Hours of Sleep:
+                </label>
+                <input
+                    type="number"
+                    name="sleepHours"
+                    id="sleepHours"
+                    min="1"
+                    max="24"
+                    class="form_control"
+                    placeholder="Hours of Sleep"
+                    required
+                />
+            </div>
+
+            <!-- Diet and Nutrition -->
+            <div class="form_group">
+                <label for="dietDescription">How would you describe your diet?</label>
+                <textarea
+                    name="dietDescription"
+                    id="dietDescription"
+                    class="input_textarea"
+                    placeholder="Describe your diet..."
+                ></textarea>
+            </div>
+            <div class="form_group">
+                <label for="dietGoals">Are there specific dietary goals or restrictions you follow?</label>
+                <textarea
+                    name="dietGoals"
+                    id="dietGoals"
+                    class="input_textarea"
+                    placeholder="Enter dietary goals or restrictions..."
+                ></textarea>
+            </div>
+
+            <!-- Stress Management -->
+            <div class="form_group">
+                <label for="stressManagement">Can you share practices or activities you use to cope with stress?</label>
+                <textarea
+                    name="stressManagement"
+                    id="stressManagement"
+                    class="input_textarea"
+                    placeholder="Share stress management practices..."
+                ></textarea>
+            </div>
+            <div class="form_group">
+                <label for="stressFactors">Are there specific situations or factors that cause you stress?</label>
+                <textarea
+                    name="stressFactors"
+                    id="stressFactors"
+                    class="input_textarea"
+                    placeholder="Enter stress factors..."
+                ></textarea>
+            </div>
+
+            <!-- Add more questions as needed -->
+
+            <!-- Submit Button -->
+            <div class="form_group">
+                <button type="submit" class="submit_btn">Submit</button>
+            </div>
+        </form>
+
+        <!-- Copyright notice in the footer -->
+        <footer class="copyright">
+            <p>&copy; 2023 DHAS.</p>
+        </footer>
+    </div>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Your form data processing logic here
+            // For simplicity, you can redirect to a "thank you" page using window.location.href
+            window.location.href = "/thank-you"; // Update the URL to your actual "thank you" page
+        }
+    </script>
+
+</body>
+
+</html>

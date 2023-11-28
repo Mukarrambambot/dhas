@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Health Survey</title>
+
+    <!-- Link to the Poppins font from Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Your custom stylesheet -->
+    <link rel="stylesheet" href="http://127.0.0.1:5000/static/style.css">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const medicalIssueRadios = document.querySelectorAll('[name="medicalIssues"]');
+        const diabeticQuestions = document.getElementById('otherMedicalIssueDetails');
+        const diabeticQuestions = document.getElementById('otherMedicalIssueDetails');
+        const otherMedicalIssueDetails = document.getElementById('otherMedicalIssueDetails');
+
+    
+        function handleMedicalIssueChange() {
+            const selectedMedicalIssue = document.querySelector('[name="medicalIssues"]:checked');
+    
+            if (selectedMedicalIssue) {
+                if (selectedMedicalIssue.value === 'diabetic') {
+                    diabeticQuestions.style.display = 'block';
+                    otherMedicalIssueDetails.style.display = 'none';
+                } else if (selectedMedicalIssue.value === 'other-medical-issue') {
+                    diabeticQuestions.style.display = 'none';
+                    otherMedicalIssueDetails.style.display = 'block';
+                } else {
+                    diabeticQuestions.style.display = 'none';
+                    otherMedicalIssueDetails.style.display = 'none';
+                }
+            }
+        }
+    
+        medicalIssueRadios.forEach(function (radio) {
+            radio.addEventListener('change', handleMedicalIssueChange);
+        });
+    
+        // Initial execution to handle the default state
+        handleMedicalIssueChange();
+    });
+</script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 id="title" class="text_center">Diabetes Health Survey</h1>
+            <p id="description" class="description text_center">
+                Your feedback is crucial for us to understand your health condition.
+            </p>
+        </header>
+
+        <!-- Survey Form -->
+        <form id="survey_form" action="/submit" method="post" autocomplete="on">
+            <!-- Basic Information -->
+            <div class="form_group">
+                <label for="name" id="name_label">Name:</label>
+                <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    class="form_control"
+                    placeholder="Enter your name"
+                    required
+                    autocomplete="name"
+                />
+            </div>
+
+            <div class="form_group">
+                <label for="age" id="age_label">Age:</label>
+                <input
+                    type="number"
+                    name="age"
+                    id="age"
+                    min="10"
+                    max="99"
+                    class="form_control"
+                    placeholder="Age"
+                    required
+                    autocomplete="age"
+                />
+            </div>
+
+            <!-- Contact Details -->
+            <div class="form_group">
+                <p>Contact Details</p>
+                <label for="email">Email Address:</label>
+                <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="form_control"
+                    placeholder="Enter your email"
+                    autocomplete="email"
+                />
+                <label for="phone">Phone Number:</label>
+                <input
+                    type="tel"
+                    name="phone"
+                    id="phone"
+                    class="form_control"
+                    placeholder="Enter your phone number"
+                    autocomplete="tel"
+                />
+            </div>
+
+            <!-- Gender Options -->
+            <div class="form_group">
+                <p>Gender:</p>
+                <label for="male">
+                    <input
+                        type="radio"
+                        name="gender"
+                        value="male"
+                        id="male"
+                        class="input_radio"
+                        required
+                    />
+                    Male
+                </label>
+                <label for="female">
+                    <input
+                        type="radio"
+                        name="gender"
+                        value="female"
+                        id="female"
+                        class="input_radio"
+                        required
+                    />
+                    Female
+                </label>
+                <label for="non-binary">
+                    <input
+                        type="radio"
+                        name="gender"
+                        value="non-binary"
+                        id="non-binary"
+                        class="input_radio"
+                        required
+                    />
+                    Non-Binary
+                </label>
+            </div>
+
+            <!-- Lifestyle Questions -->
+            <div class="form_group">
+                <p>Do you smoke?</p>
+                <label>
+                    <input
+                        type="radio"
+                        name="smoking"
+                        value="yes"
+                        class="input_radio"
+                    />
+                    Yes
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        name="smoking"
+                        value="no"
+                        class="input_radio"
+                    />
+                    No
+                </label>
+            </div>
+
+            <div class="form_group">
+                <p>Do you drink alcohol?</p>
+                <label>
+                    <input
+                        type="radio"
+                        name="drinking"
+                        value="yes"
+                        class="input_radio"
+                    />
+                    Yes
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        name="drinking"
+                        value="no"
+                        class="input_radio"
+                    />
+                    No
+                </label>
+            </div>
+
+            <!-- Do you have any medical issues? (Select one) -->
+            <div class="form_group">
+                <p>Do you have any medical issues? (Select one)</p>
+                <label>
+                    <input
+                        type="radio"
+                        name="medicalIssues"
+                        value="diabetic"
+                        class="input_radio"
+                        required
+                    />
+                    Diabetic
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        name="medicalIssues"
+                        value="non-diabetic"
+                        class="input_radio"
+                        required
+                    />
+                    Non-Diabetic
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        name="medicalIssues"
+                        value="other-medical-issue"
+                        class="input_radio"
+                        required
+                    />
+                    Other Medical Issue
+                </label>
+            </div>
+
+            <!-- Other Medical Issue Details -->
+            <div id="otherMedicalIssueDetails" style="display: none;">
+                <p>If other medical issue, please provide details:</p>
+                <div class="form_group">
+                    <label for="medical-issue-details" id="medical-issue-details-label">Details:</label>
+                    <textarea
+                        name="medicalIssueDetails"
+                        id="medical-issue-details"
+                        class="form_control"
+                        placeholder="Provide details about your other medical issue"
+                        rows="4"
+                    ></textarea>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form_group">
+                <button type="submit" class="submit_btn">Submit</button>
+            </div>
+        </form>
+
+    </div>
+
+</body>
+
+</html>
